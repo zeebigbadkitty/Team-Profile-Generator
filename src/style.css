@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+h1 {
+  background-color: red;
+  height: 100px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+#container{
+background-color:ivory;
+}
+.card {
+  border: 1px solid #000000;
+  background-color: linen;
+  padding: 8px;
+  border-radius: 12px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: inline-grid;
+  align-items: center;
+  width: 25%;
+}

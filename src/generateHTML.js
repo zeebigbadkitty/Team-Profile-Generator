@@ -1,0 +1,1 @@
+// use the src folder to house a generateHTML.js and the dist folder to hold the created one after running the CLI.
