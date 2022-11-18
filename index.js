@@ -5,49 +5,39 @@ inquirer
 .prompt([
   {
     type: 'input',
-    message: 'What is the title of your project?',
-    name: 'title',
+    message: 'What is your name?',
+    name: 'name',
   },
   {
     type: 'input',
-    message: 'Give a brief description.',
-    name: 'description',
+    message: 'What is your employee ID number?',
+    name: 'id',
   },
   {
     type: 'input',
-    message: 'Are there any installation instructions?',
-    name: 'instructions',
-  },
-  {
-    type: 'input',
-    message: 'Usage?',
-    name: 'usage',
+    message: 'What is your email address?',
+    name: 'email',
   },
   {
     type: 'list',
-    message: 'Make a license selection.', 
-    name: 'license',
-    choices: ['None', 'MIT', 'Apache License 2.0', 'BSD' ]
+    message: 'What is your job title?', 
+    name: 'title',
+    choices: ['Employee', 'Intern', 'Engineer', 'Manager' ]
   },
   {
     type: 'input',
-    message: 'Include an image or example of your project.',
-    name: 'example',
+    message: '(IF INTERN) What is your school?',
+    name: 'school',
   },
   {
     type: 'input',
-    message: 'Please provide a link to your Github repository.', 
-    name: 'credits',
+    message: '(IF ENGINEER) What is the link to your personal GitHub?', 
+    name: 'github',
   },
   {
     type: 'input',
-    message: 'Which tests have been performed?',
-    name: 'tests',
-  },
-  {
-    type: 'input',
-    message: 'Include your contact e-mail address.', 
-    name: 'questions',
+    message: '(IF MANAGER) What is your office number?',
+    name: 'officeNumber',
   },
     ])
     .then((response) =>{
@@ -61,7 +51,7 @@ inquirer
     err ? console.log(err) : console.log ('Successfully created HTML file!')
   );
 })
-const buildHTML = ({title, description, instructions, usage, license, example, credits, tests, questions}) =>`<!DOCTYPE html>
+const buildHTML = ({name, id, email, school, github, officeNumber}) =>`<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -78,7 +68,10 @@ const buildHTML = ({title, description, instructions, usage, license, example, c
   <body>
     <div id="container">
       <div class="card">
-        <i class="fa-regular fa-user"></i>Employee 1
+        <i class="fa-regular fa-user"></i>${name}
+        <li class="details"></li>
+        <li class="details"></li>
+        <li class="details"></li>
         <li class="details"></li>
         <li class="details"></li>
         <li class="details"></li>
