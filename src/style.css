@@ -19,11 +19,15 @@ h1 {
 }
 #container {
   background-color: aliceblue;
+  display: grid;
+  margin-left: 30vh;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
 .card {
   border: 1px solid #000000;
   background-color: snow;
-  padding: 8px;
+  padding: 40px;
   border-radius: 12px;
   margin-top: 50px;
   margin-bottom: 50px;
