@@ -9,8 +9,8 @@ h1 {
   margin-bottom: 50px;
   text-align: center;
 }
-#container{
-background-color:ivory;
+#container {
+  background-color: ivory;
 }
 .card {
   border: 1px solid #000000;
@@ -20,6 +20,14 @@ background-color:ivory;
   margin-top: 50px;
   margin-bottom: 50px;
   display: inline-grid;
+  text-align: center;
   align-items: center;
   width: 25%;
+}
+.details {
+  display: inline-grid;
+  text-align: center;
+  align-items: center;
+  list-style: none;
+  padding: 8px;
 }
