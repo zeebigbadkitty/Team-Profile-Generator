@@ -1,78 +1,20 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 
-const startApp = () => {
-    inquirer
-      .prompt([
-        {
-          type: "list",
-          message: "What is your job title?",
-          choices: ["Employee", "Intern", "Engineer", "Manager"]
-          name: "title",
-        },
-      ])
-      .then((res) => {
-        if (res.start === "Exit") {
-          return;
-        } else {
-          exit();
-        }
-      });
-  };
+//Do I need a function to start the app?
+
+const startApp = () => {}
+startApp();
 
 
-
-inquirer
-  .prompt([
-    {
-      type: "list",
-      message: "What is your job title?",
-      name: "title",
-,
-    },
-    {
-      type: "input",
-      message: "What is your name?",
-      name: "name",
-    },
-    {
-      type: "input",
-      message: "What is your employee ID number?",
-      name: "id",
-    },
-    {
-      type: "input",
-      message: "What is your email address?",
-      name: "email",
-    },
-    {
-      type: "input",
-      message: "(IF INTERN) What is your school?",
-      name: "school",
-    },
-    {
-      type: "input",
-      message: "(IF ENGINEER) What is the link to your personal GitHub?",
-      name: "github",
-    },
-    {
-      type: "input",
-      message: "(IF MANAGER) What is your office number?",
-      name: "officeNumber",
-    },
-  ])
-  .then((response) => {
-    console.log(response);
+  //Writing that data to a file.
+  let buildFile = buildHTML(response);
+  fs.writeFile("sample.html", buildFile, (err) =>
+    err ? console.log(err) : console.log("Successfully created HTML file!")
+  );
 
 
-
-
-    //Writing that data to a file.
-    let buildFile = buildHTML(response);
-    fs.writeFile("sample.html", buildFile, (err) =>
-      err ? console.log(err) : console.log("Successfully created HTML file!")
-    );
-  });
+//buildHTML
 const buildHTML = ({
   name,
   id,
@@ -123,6 +65,3 @@ function jobTitle(title) {
   return title;
 }
 
-
-
-startApp();
