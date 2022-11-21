@@ -1,5 +1,6 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
+const buildHtml = require("./src/generateHTML")
 
 //Importing
 const { Employee } = require("./lib/employee");
@@ -18,7 +19,7 @@ const newEmployee = () => {
         message: "What is your job title?",
         name: "title",
         choices: ["Employee", "Engineer", "Manager", "Intern", "None"],
-      },
+      }
     ])
     .then((response) => {
       console.log(response);
@@ -34,11 +35,11 @@ const newEmployee = () => {
       }
       else if (response.title === "Manager"){
         createManager();
-
       }
-      else(){
-        buildHTML()}
-    });
+      else{
+        fs.writeFile("sample.html", buildHtml(employeeArray), (err) =>
+  err ? console.log(err) : console.log("Successfully created HTML file!"))}
+    })
 };
 newEmployee();
 
@@ -80,7 +81,7 @@ const createEngineer = () => {
       newEmployee()
     });
 };
-createEngineer(); //Create one for Manager and Intern
+
 
 //buildHTML
 const buildHTML = ({
@@ -126,7 +127,7 @@ fs.writeFile("sample.html", buildFile, (err) =>
 );
 
 function jobTitle(title) {
-  let title = "";
+  // let title = "";
   if (title === "Intern") {
     title = '![Title: Intern](<img src="/src/user-graduate-solid.svg">)';
   } else if (title === "Engineer") {
