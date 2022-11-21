@@ -42,7 +42,7 @@ const newEmployee = () => {
 //Run newEmployee
 newEmployee();
 
-//Inquirer Prompts for Classes
+//Create Engineer
 const createEngineer = () => {
   inquirer
     .prompt([
@@ -76,6 +76,82 @@ const createEngineer = () => {
         response.github
       );
       employeeArray.push(engineerInstance);
+      console.log(employeeArray);
+      newEmployee()
+    });
+};
+//Create Manager
+const createManager = () => {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "What is your name?",
+        name: "name",
+      },
+      {
+        type: "input",
+        message: "What is your employee ID number?",
+        name: "id",
+      },
+      {
+        type: "input",
+        message: "What is your email address?",
+        name: "email",
+      },
+      {
+        type: "input",
+        message: "What is your office number?",
+        name: "officeNumber",
+      },
+    ])
+    .then((response) => {
+      console.log(response);
+      const managerInstance = new Manager(
+        response.name,
+        response.id,
+        response.email,
+        response.officeNumber,
+      );
+      employeeArray.push(managerInstance);
+      console.log(employeeArray);
+      newEmployee()
+    });
+};
+//Create Intern
+const createIntern = () => {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "What is your name?",
+        name: "name",
+      },
+      {
+        type: "input",
+        message: "What is your employee ID number?",
+        name: "id",
+      },
+      {
+        type: "input",
+        message: "What is your email address?",
+        name: "email",
+      },
+      {
+        type: "input",
+        message: "What school are you currently attending?",
+        name: "school",
+      },
+    ])
+    .then((response) => {
+      console.log(response);
+      const internInstance = new Intern (
+        response.name,
+        response.id,
+        response.email,
+        response.school,
+      );
+      employeeArray.push(internInstance);
       console.log(employeeArray);
       newEmployee()
     });
