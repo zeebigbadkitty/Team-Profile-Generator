@@ -9,8 +9,6 @@ const { Intern } = require("./lib/intern");
 const { Manager } = require("./lib/manager");
 const employeeArray = [];
 
-//Do I need a function to start the app?
-
 const newEmployee = () => {
   inquirer
     .prompt([
@@ -36,11 +34,12 @@ const newEmployee = () => {
       else if (response.title === "Manager"){
         createManager();
       }
-      else{
-        fs.writeFile("sample.html", buildHtml(employeeArray), (err) =>
-  err ? console.log(err) : console.log("Successfully created HTML file!"))}
+      else{fs.writeFileSync("sample.html", buildHtml(employeeArray), (err) =>
+      err ? console.log(err) : console.log("Successfully created HTML file!"))}
     })
 };
+
+//Run newEmployee
 newEmployee();
 
 //Inquirer Prompts for Classes
@@ -121,10 +120,10 @@ const buildHTML = ({
 </html>`;
 
 //Writing that data to a file.
-let buildFile = buildHTML(response);
-fs.writeFile("sample.html", buildFile, (err) =>
-  err ? console.log(err) : console.log("Successfully created HTML file!")
-);
+// let buildFile = buildHTML(response);
+// fs.writeFile("sample.html", buildFile, (err) =>
+//   err ? console.log(err) : console.log("Successfully created HTML file!")
+// );
 
 function jobTitle(title) {
   // let title = "";
