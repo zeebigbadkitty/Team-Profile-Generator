@@ -1,18 +1,86 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 
+//Importing
+const { Employee } = require("./lib/employee");
+const { Engineer } = require("./lib/engineer");
+const { Intern } = require("./lib/intern");
+const { Manager } = require("./lib/manager");
+const employeeArray = [];
+
 //Do I need a function to start the app?
 
-const startApp = () => {}
-startApp();
+const newEmployee = () => {
+  inquirer
+    .prompt([
+      {
+        type: "list",
+        message: "What is your job title?",
+        name: "title",
+        choices: ["Employee", "Engineer", "Manager", "Intern", "None"],
+      },
+    ])
+    .then((response) => {
+      console.log(response);
+      if (response.title === "Employee") {
+        createEmployee();
+      }
+      else if (response.title === "Engineer"){
+        createEngineer();
+      }
+      else if (response.title === "Intern"){
+        createIntern();
 
+      }
+      else if (response.title === "Manager"){
+        createManager();
 
-  //Writing that data to a file.
-  let buildFile = buildHTML(response);
-  fs.writeFile("sample.html", buildFile, (err) =>
-    err ? console.log(err) : console.log("Successfully created HTML file!")
-  );
+      }
+      else(){
+        buildHTML()}
+    });
+};
+newEmployee();
 
+//Inquirer Prompts for Classes
+const createEngineer = () => {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "What is your name?",
+        name: "name",
+      },
+      {
+        type: "input",
+        message: "What is your employee ID number?",
+        name: "id",
+      },
+      {
+        type: "input",
+        message: "What is your email address?",
+        name: "email",
+      },
+      {
+        type: "input",
+        message: "What is the link to your personal GitHub?",
+        name: "github",
+      },
+    ])
+    .then((response) => {
+      console.log(response);
+      const engineerInstance = new Engineer(
+        response.name,
+        response.id,
+        response.email,
+        response.github
+      );
+      employeeArray.push(engineerInstance);
+      console.log(employeeArray);
+      newEmployee()
+    });
+};
+createEngineer(); //Create one for Manager and Intern
 
 //buildHTML
 const buildHTML = ({
@@ -51,6 +119,12 @@ const buildHTML = ({
   </body>
 </html>`;
 
+//Writing that data to a file.
+let buildFile = buildHTML(response);
+fs.writeFile("sample.html", buildFile, (err) =>
+  err ? console.log(err) : console.log("Successfully created HTML file!")
+);
+
 function jobTitle(title) {
   let title = "";
   if (title === "Intern") {
@@ -64,4 +138,3 @@ function jobTitle(title) {
   }
   return title;
 }
-
