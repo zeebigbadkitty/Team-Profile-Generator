@@ -28,8 +28,8 @@ const buildHtml = (teamArray) => {
 <li class="details">School Name: ${employee.getSchool()}</li></div>`;
   };
 
-//Employee Card
-const employeeCard = (employee) => {
+  //Employee Card
+  const employeeCard = (employee) => {
     return `<div class="card"><i class="fa-regular fa-user"></i>${employee.getRole()} ${employee.getName()}
 <li class="details">Employee Id#: ${employee.getId()}</li>
 <li class="details"><a href="${employee.getEmail()}">Send email</a></li></div>`;
@@ -46,9 +46,8 @@ const employeeCard = (employee) => {
       cardArray.push(employeeCard(employee));
     }
   });
-  console.log(cardArray)
+  console.log(cardArray);
   return cardArray.join("");
-  
 };
 
 module.exports = (teamArray) => {
