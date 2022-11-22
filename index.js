@@ -42,6 +42,39 @@ const newEmployee = () => {
 //Run newEmployee
 newEmployee();
 
+//Create Employee
+const createEmployee = () => {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "What is your name?",
+        name: "name",
+      },
+      {
+        type: "input",
+        message: "What is your employee ID number?",
+        name: "id",
+      },
+      {
+        type: "input",
+        message: "What is your email address?",
+        name: "email",
+      },
+    ])
+    .then((response) => {
+      console.log(response);
+      const employeeInstance = new Employee (
+        response.name,
+        response.id,
+        response.email,
+      );
+      employeeArray.push(employeeInstance);
+      console.log(employeeArray);
+      newEmployee()
+    });
+};
+
 //Create Engineer
 const createEngineer = () => {
   inquirer
