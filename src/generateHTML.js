@@ -6,33 +6,33 @@ const buildHtml = (teamArray) => {
 
   //Engineer Card
   const engineerCard = (employee) => {
-    return `<div class="card">${employee.getRole()} ${employee.getName()}
+    return `<div class="card"><i class="fa-solid fa-user-gear"></i>${employee.getRole()} ${employee.getName()}
 <li class="details">Employee Id#: ${employee.getId()}</li>
 <li class="details"><a href="${employee.getEmail()}">Send email</a></li>
-<li class="details"><a href="${employee.getGithub()}">My Github</a></li>`;
+<li class="details"><a href="${employee.getGithub()}">My Github</a></li></div>`;
   };
 
   //Manager Card
   const managerCard = (employee) => {
-    return `<div class="card">${employee.getRole()} ${employee.getName()}
+    return `<div class="card"><i class="fa-solid fa-user-tie"></i>${employee.getRole()} ${employee.getName()}
 <li class="details">Employee Id#: ${employee.getId()}</li>
 <li class="details"><a href="${employee.getEmail()}">Send email</a></li>
-<li class="details">Office Phone#: ${employee.getNumber()}</li>`;
+<li class="details">Office Phone#: ${employee.getNumber()}</li></div>`;
   };
 
   //Intern Card
   const internCard = (employee) => {
-    return `<div class="card">${employee.getRole()} ${employee.getName()}
+    return `<div class="card"><i class="fa-solid fa-user-graduate"></i>${employee.getRole()} ${employee.getName()}
 <li class="details">Employee Id#: ${employee.getId()}</li>
 <li class="details"><a href="${employee.getEmail()}">Send email</a></li>
-<li class="details">School Name: ${employee.getSchool()}</li>`;
+<li class="details">School Name: ${employee.getSchool()}</li></div>`;
   };
 
 //Employee Card
 const employeeCard = (employee) => {
-    return `<div class="card">${employee.getRole()} ${employee.getName()}
+    return `<div class="card"><i class="fa-regular fa-user"></i>${employee.getRole()} ${employee.getName()}
 <li class="details">Employee Id#: ${employee.getId()}</li>
-<li class="details"><a href="${employee.getEmail()}">Send email</a></li>`;
+<li class="details"><a href="${employee.getEmail()}">Send email</a></li></div>`;
   };
 
   teamArray.forEach((employee) => {
@@ -46,8 +46,9 @@ const employeeCard = (employee) => {
       cardArray.push(employeeCard(employee));
     }
   });
-
+  console.log(cardArray)
   return cardArray.join("");
+  
 };
 
 module.exports = (teamArray) => {
@@ -58,7 +59,7 @@ module.exports = (teamArray) => {
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="./src/style.css" />
     <link
       rel="stylesheet"
       href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
