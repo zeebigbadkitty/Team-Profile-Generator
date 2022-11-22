@@ -28,6 +28,13 @@ const buildHtml = (teamArray) => {
 <li class="details">School Name: ${employee.getSchool()}</li>`;
   };
 
+//Employee Card
+const employeeCard = (employee) => {
+    return `<div class="card">${employee.getRole()} ${employee.getName()}
+<li class="details">Employee Id#: ${employee.getId()}</li>
+<li class="details"><a href="${employee.getEmail()}">Send email</a></li>`;
+  };
+
   teamArray.forEach((employee) => {
     if (employee.getRole() === "Engineer") {
       cardArray.push(engineerCard(employee));
@@ -36,7 +43,7 @@ const buildHtml = (teamArray) => {
     } else if (employee.getRole() === "Intern") {
       cardArray.push(internCard(employee));
     } else {
-      cardArray.push(internCard(employee));
+      cardArray.push(employeeCard(employee));
     }
   });
 
