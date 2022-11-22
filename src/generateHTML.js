@@ -4,6 +4,7 @@ const { Engineer } = require("../lib/engineer");
 const buildHtml = (teamArray) => {
   const cardArray = [];
 
+  //Engineer Card
   const engineerCard = (employee) => {
     return `<div class="card">${employee.getRole()}${employee.getName()}
 <li class="details">${employee.getId()}</li>
@@ -11,7 +12,21 @@ const buildHtml = (teamArray) => {
 <li class="details"><a href="${employee.getGithub()}"></a></li>`;
   };
 
-  //Make Manager and Intern Card
+  //Manager Card
+  const managerCard = (employee) => {
+    return `<div class="card">${employee.getRole()}${employee.getName()}
+<li class="details">${employee.getId()}</li>
+<li class="details"><a href="${employee.getEmail()}">Send email.</a></li>
+<li class="details"><a href="${employee.getOfficenumber()}"></a></li>`;
+  };
+
+  //Intern Card
+  const internCard = (employee) => {
+    return `<div class="card">${employee.getRole()}${employee.getName()}
+<li class="details">${employee.getId()}</li>
+<li class="details"><a href="${employee.getEmail()}">Send email.</a></li>
+<li class="details"><a href="${employee.getSchool()}"></a></li>`;
+  };
 
   teamArray.forEach((employee) => {
     if (employee.getRole() === "Engineer") {
