@@ -6,26 +6,26 @@ const buildHtml = (teamArray) => {
 
   //Engineer Card
   const engineerCard = (employee) => {
-    return `<div class="card">${employee.getRole()}${employee.getName()}
-<li class="details">${employee.getId()}</li>
+    return `<div class="card">${employee.getRole()} ${employee.getName()}
+<li class="details">Employee Id#: ${employee.getId()}</li>
 <li class="details"><a href="${employee.getEmail()}">Send email</a></li>
 <li class="details"><a href="${employee.getGithub()}">My Github</a></li>`;
   };
 
   //Manager Card
   const managerCard = (employee) => {
-    return `<div class="card">${employee.getRole()}${employee.getName()}
-<li class="details">${employee.getId()}</li>
+    return `<div class="card">${employee.getRole()} ${employee.getName()}
+<li class="details">Employee Id#: ${employee.getId()}</li>
 <li class="details"><a href="${employee.getEmail()}">Send email</a></li>
-<li class="details">${employee.getNumber()}</li>`;
+<li class="details">Office Phone#: ${employee.getNumber()}</li>`;
   };
 
   //Intern Card
   const internCard = (employee) => {
     return `<div class="card">${employee.getRole()} ${employee.getName()}
-<li class="details">${employee.getId()}</li>
+<li class="details">Employee Id#: ${employee.getId()}</li>
 <li class="details"><a href="${employee.getEmail()}">Send email</a></li>
-<li class="details">${employee.getSchool()}</li>`;
+<li class="details">School Name: ${employee.getSchool()}</li>`;
   };
 
   teamArray.forEach((employee) => {
@@ -34,6 +34,8 @@ const buildHtml = (teamArray) => {
     } else if (employee.getRole() === "Manager") {
       cardArray.push(managerCard(employee));
     } else if (employee.getRole() === "Intern") {
+      cardArray.push(internCard(employee));
+    } else {
       cardArray.push(internCard(employee));
     }
   });
