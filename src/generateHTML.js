@@ -9,7 +9,7 @@ const buildHtml = (teamArray) => {
     return `<div class="card">${employee.getRole()}${employee.getName()}
 <li class="details">${employee.getId()}</li>
 <li class="details"><a href="${employee.getEmail()}">Send email</a></li>
-<li class="details"><a href="${employee.getGithub()}"></a></li>`;
+<li class="details"><a href="${employee.getGithub()}">My Github</a></li>`;
   };
 
   //Manager Card
@@ -17,15 +17,15 @@ const buildHtml = (teamArray) => {
     return `<div class="card">${employee.getRole()}${employee.getName()}
 <li class="details">${employee.getId()}</li>
 <li class="details"><a href="${employee.getEmail()}">Send email</a></li>
-<li class="details"><a href="${employee.getNumber()}"></a></li>`;
+<li class="details">${employee.getNumber()}</li>`;
   };
 
   //Intern Card
   const internCard = (employee) => {
-    return `<div class="card">${employee.getRole()}${employee.getName()}
+    return `<div class="card">${employee.getRole()} ${employee.getName()}
 <li class="details">${employee.getId()}</li>
 <li class="details"><a href="${employee.getEmail()}">Send email</a></li>
-<li class="details"><a href="${employee.getSchool()}"></a></li>`;
+<li class="details">${employee.getSchool()}</li>`;
   };
 
   teamArray.forEach((employee) => {
@@ -58,8 +58,8 @@ module.exports = (teamArray) => {
   </head>
   <h1><i class="fa-solid fa-users"></i> My Team</h1>
   <body>
-    <div id="container"> ${buildHtml(teamArray)}
-    </div>
+    <div id="container"> ${buildHtml(teamArray)}</div>
+    
 
     <script src="https://kit.fontawesome.com/c36497dbed.js" crossorigin="anonymous"></script>
   </body>
