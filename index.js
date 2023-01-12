@@ -14,9 +14,9 @@ const newEmployee = () => {
     .prompt([
       {
         type: "list",
-        message: "What is your job title?",
+        message: "What is your employee's job title?",
         name: "title",
-        choices: ["Employee", "Engineer", "Manager", "Intern", "None"],
+        choices: ["Employee", "Engineer", "Intern", "I'm finished building my team."],
       },
     ])
     .then((response) => {
@@ -27,8 +27,8 @@ const newEmployee = () => {
         createEngineer();
       } else if (response.title === "Intern") {
         createIntern();
-      } else if (response.title === "Manager") {
-        createManager();
+      // } else if (response.title === "Manager") {
+      //   createManager();
       } else {
         fs.writeFileSync("sample.html", buildHtml(employeeArray), (err) =>
           err
@@ -39,8 +39,7 @@ const newEmployee = () => {
     });
 };
 
-//Run newEmployee
-newEmployee();
+
 
 //Create Employee
 const createEmployee = () => {
@@ -352,6 +351,13 @@ const createIntern = () => {
 // fs.writeFile("sample.html", buildFile, (err) =>
 //   err ? console.log(err) : console.log("Successfully created HTML file!")
 // );
+
+
+
+
+//Run newEmployee
+createManager();
+
 
 function jobTitle(title) {
   // let title = "";
